@@ -1,0 +1,16 @@
+# # The `approx()` function is a powerful tool that allows you to interpolate 
+# values at new x-coordinates using various interpolation methods, such as 
+# linear or constant. With the `approx()` function, you can easily handle missing
+# data and obtain smooth approximations of your data points.
+
+# To use the `approx()` function, you need to provide a vector of known 
+# x-coordinates and a vector of known y-coordinates. You can then use the function
+# to approximate the y-coordinates at new x-coordinates. The function also allows
+# you to specify the interpolation method to be used, such as "linear" or "constant".
+
+x <- seq(0,10, by=0.1)
+y <- sin(x)
+xout <- seq(0,10,by=0.01)
+new_y <- approx(x,y,xout, method="linear")$y
+plot(x,y, type="o")
+lines(xout,new_y, col="red")
